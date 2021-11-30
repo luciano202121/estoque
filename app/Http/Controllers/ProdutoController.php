@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produto;
 use App\Models\UserOrder;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class ProdutoController extends Controller
 {
@@ -65,23 +67,33 @@ class ProdutoController extends Controller
         return view('produtos.compraProduto', ['produto' => $produto]);
     }
 
-    public function verificarEstoque($id){
-        $produto = Produto::find($id);
-    }
-
     public function pedidoDeProdutos(Request $request){
 
-        $item = new UserOrder;
-        $item->nome = $request->nome;
-        $item->valor = $request->valor;
-        $item->descricao = $request->descricao;
-        $item->quantidade = $request->quantidade;
 
-        $item->save();
+                // verifica aquantidade no estoque
+                $produto = Produto::find($request->id);
+                if($produto->quantidade < 0){
+                    return redirect('/')->with('msg','Produto sem estoque');
+                } else {
 
-        return redirect('/')->with('msg','item comprado com sucesso');
+                    // reduz a quantidade no estoque
+                Produto::where('id',$request->id)
+                ->decrement('quantidade', $request->quantidade);
+
+                $user = auth()->user();
+		        // persiste no banco as compras do cliente
+                $item = new UserOrder;
+                $item->nome = $request->nome;
+                $item->valor = $request->valor;
+                $item->descricao = $request->descricao;
+                $item->quantidade = $request->quantidade;
+                $item->user_id = $user->id;
+
+                $item->save();
+
+                return redirect('/')->with('msg','item comprado com sucesso');
+                }
+
 
     }
-
-
 }

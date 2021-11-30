@@ -30,6 +30,7 @@
                         <label for="quantidade"> Quantidade </label>
                         <input type="number" name="quantidade" id="quantidade" class="form-control">
                     </div>
+                        <input type="hidden" name="id" id="id" value="{{ $produto->id }}">
                     <input type="submit" value="Enviar" class="btn btn-primary">
             </form>
         </div>

@@ -23,9 +23,8 @@ Route::group(['prefix' => '/produto'], function(){
     Route::get('/viewProdutos',[ProdutoController::class, 'index']);
     Route::get('/conteudo/{id}',[ProdutoController::class, 'show']);
     route::delete('/del/{id}', [ProdutoController::class, 'destroy']);
-    Route::get('/edit/{id}', [ProdutoController::class, 'edit']);
+    Route::get('/edit/{id}', [ProdutoController::class, 'edit'])->middleware('auth');
     Route::post('/comprar',[ProdutoController::class, 'pedidoDeProdutos']);
-
 });
 
 
