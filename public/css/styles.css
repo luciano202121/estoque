@@ -1,0 +1,119 @@
+/* main */
+/* msg */
+.msg #session{
+    background-color: greenyellow;
+    text-align: center;
+    font-size: 30px;
+}
+
+#navbar ul li{
+    margin-left: 10px;
+}
+
+/* navbar */
+
+#navbar img{
+    width: 80px;
+ }
+
+ #navbar {
+     justify-content: space-between;
+     background-color:#fff;
+     padding: 5px 0;
+ }
+
+ #navbar a{
+     font-size: 14px;
+     color: #757575;
+ }
+
+ #navbar a:hover{
+     color: #f2a340;
+ }
+
+ /* events container */
+ #events-container{
+     padding: 50px;
+ }
+
+ #events-container h2{
+   margin-bottom: 10px;
+ }
+
+ #events-container .subtitle{
+   color: 757575;
+   margin-bottom: 30px;
+ }
+
+ /* Cards */
+#cards-container{
+    display: flex;
+}
+
+#events-container .card-body{
+   flex: 1 1 24%;
+   max-width: 25%;
+   border-radius: 10px;
+   padding: 0px;
+   margin: .5px;
+   text-align: center;
+}
+
+#events-container img{
+    max-height: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#cards-container h6{
+    text-align: center;
+}
+#cards-container .card-title{
+    color: #212121;
+    font-size: 20px;
+    line-height: 1;
+    text-align: center;
+}
+
+
+#cards-container .card-text-valor{
+    font-size: 14px;
+    color: black;
+    line-height: 1px;
+    text-align: center;
+}
+
+#cards-container .card-text-desc{
+    font-size: 14px;
+    color: black;
+    line-height: 1px;
+    text-align: center;
+}
+
+#cards-container .card-qnt{
+    font-size: 14px;
+    color: black;
+    line-height: 1px;
+    text-align: center;
+    margin-bottom: 1;
+}
+
+.card-participants{
+    font-size: 14px;
+    color: #757575;
+}
+#cards-container .btn-primary{
+    margin-left: 30%;
+}
+
+/* exibirProdutos */
+#buttons{
+    display: flex;
+}
+
+/* CompraProduto */
+
+.form-compra-produto #quantidade{
+    margin-bottom: 20px;
+    width: 100px;
+}
